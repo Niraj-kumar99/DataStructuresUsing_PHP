@@ -9,6 +9,7 @@ class LinkedList {
         $this->head = null;
     }
 
+    //Traversing the list.
     public function printList() {
         $temp = new Node();
         $temp = $this->head;
@@ -48,7 +49,7 @@ $third->next = null;
 //linking with third node
 $second->next = $third;
 
-//Displaying List
+//Displaying
 $MyLinkedList->printList();
 
 
