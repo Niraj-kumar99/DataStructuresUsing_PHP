@@ -23,31 +23,39 @@ class LinkedList {
             echo "\nThe list is empty.";
         }
     }
+
+    //Add new element at the end of the list
+    public function push_back($newEliment) {
+        $newNode = new Node();
+        $newNode->data = $newEliment;
+        $newNode->next = null;
+        /* 
+         Check the list is empty or not.
+         if empty then making new node as head
+         */
+        if($this->head == null) {
+            $this->head = $newNode;
+        }
+        // else traversing to the last node.
+        else {
+            $temp = new Node();
+            $temp = $this->head;
+            while($temp->next != null) {
+                $temp = $temp->next;
+            }
+            $temp->next = $newNode;
+        }
+    }
 }
 
 //Creating an empty LinkedList
 $MyLinkedList = new LinkedList();
 
-//Adding first Node
-$first = new Node();
-$first->data = 10;
-$first->next = null;
-//Linking with head node.
-$MyLinkedList->head = $first;
-
-//Adding second node.
-$second = new Node();
-$second->data = 20;
-$second->next = null;
-//linking with first node
-$first->next = $second;
-
-//Adding third node.
-$third = new Node();
-$third->data = 30;
-$third->next = null;
-//linking with third node
-$second->next = $third;
+//Add eliments
+$MyLinkedList->push_back(10);
+$MyLinkedList->push_back(20);
+$MyLinkedList->push_back(30);
+$MyLinkedList->push_back(40);
 
 //Displaying
 $MyLinkedList->printList();
