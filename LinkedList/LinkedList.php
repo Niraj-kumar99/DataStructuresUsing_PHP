@@ -49,16 +49,16 @@ class LinkedList {
 }
 
 //Creating an empty LinkedList
-$MyLinkedList = new LinkedList();
+$myLinkedList = new LinkedList();
 
 //Add eliments
-$MyLinkedList->push_back(10);
-$MyLinkedList->push_back(20);
-$MyLinkedList->push_back(30);
-$MyLinkedList->push_back(40);
+$myLinkedList->push_back(10);
+$myLinkedList->push_back(20);
+$myLinkedList->push_back(30);
+$myLinkedList->push_back(40);
 
 //Displaying
-$MyLinkedList->printList();
+$myLinkedList->printList();
 
 
 ?>
