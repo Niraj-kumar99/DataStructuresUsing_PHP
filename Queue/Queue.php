@@ -1,48 +1,53 @@
 <?php
 include 'Node.php';
-
-class Queue {
+class MyQueue
+{
     public $front;
     public $rear;
 
-    //Add new node at rear end.
-    public function enqueue($newEliment) {
+    //inserting the elements in the queue.
+    public function enQueue($data)
+    {
         $newNode = new Node();
-        $newNode->newEliment = $newEliment;
-        $newNode->next = null;
-        /*
-         Check the queue is empty or not.
-         if empty then new node is front and rear 
-         for the queue.
-        */
-        if($this->front == null and $this->rear == null) {
-            $this->front = $this->rear = $newNode;
+        $newNode -> data =$data;
+        $newNode -> next = null;
+
+        if($this -> front == null && $this -> rear == null)
+        {
+            $this -> front = $this -> rear = $newNode;
         }
-        //else add new node after rear node.
-        else {
-            $this->rear->next = $newNode;
-            $this->rear = $newNode;
+        else{
+            $this -> rear -> next = $newNode;
+            $this -> rear = $newNode;
         }
     }
-
-    public function printQueue(){
-        $temp = new Node();
-        $temp = $this->front;
-        if($temp != null) {
-            while($temp != null){
-                echo $temp->data." ";
-                $temp = $temp->next;
-            }
-        }
-        else {
-            echo "\n Queue is empty . ";
+    //deleting the element that is deQueue in th queue.
+    public function deQueue()
+    {
+        $tempNode = new Node();
+        $tempNode = $this -> front;
+        $this -> front = $this -> front -> next;
+        echo "\ndeQueued Element is : \n".$tempNode -> data;
+    }
+    //printing the queue elements.
+    public function printQueue()
+    {
+        $tempNode = new Node();
+        $tempNode = $this -> front;
+        echo "\nThe Elements in the Queue are: \n";
+        while($tempNode != null)
+        {
+            echo $tempNode -> data." ";
+            $tempNode = $tempNode ->next;
         }
     }
 }
 
-$myQueue = new Queue();
-$myQueue->enqueue(10);
-$myQueue->enqueue(20);
-$myQueue->enqueue(30);
-$myQueue->printQueue();
+$myQueue = new MyQueue();
+$myQueue -> enQueue(10);
+$myQueue -> enQueue(20);
+$myQueue -> enQueue(30);
+$myQueue -> printQueue();
+$myQueue -> deQueue();
+$myQueue -> printQueue();
 ?>
